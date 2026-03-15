@@ -3,3 +3,15 @@
 # API development
 # Settings management 
 # example of how to use pydantic
+
+from pydantic import BaseModel, ValidationError
+
+class User(BaseModel):
+    id: int
+    name: str
+    email: str
+    is_active:bool
+    
+input_data={"id": 1, "name": "John Doe", "email": "john.doe@example.com", "is_active": true}
+user=User(**input_data)
+print(user)
